@@ -7,171 +7,278 @@
 <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    /* โทนเขียว-ชมพู พาสเทล */
-    --bg-green: #E8F5E9; 
-    --bg-pink: #FCE4EC;
-    --accent-green: #A5D6A7;
-    --accent-pink: #F8BBD0; /* ปรับชมพูให้อ่อนลงจากเดิม */
-    --text-main: #4E6E52; 
-    --shop-pink: #F48FB1; /* สีชมพูพาสเทลสำหรับชื่อร้าน */
-    --card-white: rgba(255, 255, 255, 0.9);
+    --pink1: #FFE5EC;
+    --pink2: #FFC2D1;
+    --pink3: #FB6CC1;
+    --green1: #E8F5E9;
+    --green2: #C8E6C9;
+    --green3: #81C784;
+    --green4: #66BB6A;
+    --hot: #FF6B6B;
+    --bg-grad: linear-gradient(160deg, #F9FBE7 0%, #FFF5F8 50%, #ffffff 100%);
+    --text: #5D7B5D;
+    --textl: #8BA88B;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
 
 body {
-  font-family: 'Mitr', sans-serif;
-  background: linear-gradient(180deg, var(--bg-green) 0%, var(--bg-pink) 100%);
-  background-attachment: fixed;
-  min-height: 100vh;
-  color: var(--text-main);
-  overflow-x: hidden;
+font-family: 'Mitr', sans-serif;
+background: var(--bg-grad);
+min-height: 100vh;
+color: var(--text);
+overflow-x: hidden;
 }
 
-/* Floating Elements */
-.sp { position:fixed; pointer-events:none; z-index:0; animation:fl 5s ease-in-out infinite; opacity:0.5; color: var(--accent-pink); }
+body::before {
+content: '';
+position:fixed; inset:0;
+background:
+radial-gradient(circle at 15% 15%, rgba(200,230,201,0.4) 0%, transparent 45%),
+radial-gradient(circle at 85% 85%, rgba(255,194,209,0.15) 0%, transparent 45%);
+pointer-events:none; z-index:0;
+}
+
+.sp { position:fixed; pointer-events:none; z-index:0; animation:fl 5s ease-in-out infinite; opacity:0.6; }
 .sp:nth-child(1){top:4%;left:5%;font-size:22px;}
-.sp:nth-child(2){top:12%;right:8%;font-size:18px;animation-delay:1s;}
-.sp:nth-child(3){top:55%;right:4%;font-size:24px;animation-delay:.5s;}
-@keyframes fl {0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-15px) scale(1.1);}}
+.sp:nth-child(2){top:12%;right:8%;font-size:14px;animation-delay:1s;}
+.sp:nth-child(3){top:38%;left:2%;font-size:12px;animation-delay:2s;}
+.sp:nth-child(4){top:55%;right:4%;font-size:20px;animation-delay:.5s;}
+.sp:nth-child(5){bottom:22%;left:7%;font-size:16px;animation-delay:1.5s;}
+@keyframes fl {0%,100%{transform:translateY(0) rotate(0);}50%{transform:translateY(-14px) rotate(8deg);}}
 
 .wrap { max-width:480px; margin:0 auto; padding:16px 14px 60px; position:relative; z-index:1; }
 
-.header { text-align:center; padding:35px 0 10px; animation:fadeUp .7s ease both; }
-.logo-wrapper { margin-bottom: 15px; display: flex; justify-content: center; }
+.header { text-align:center; padding:35px 0 20px; animation:fadeUp .7s ease both; }
+
+/* ตกแต่งโลโก้พร้อมอิโมจิรอบๆ */
+.logo-wrapper {
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
 .logo-img {
-    width: 140px; height: 140px;
-    object-fit: cover; border-radius: 50%;
-    border: 4px solid #fff;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  width: 180px; 
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  outline: 2px solid var(--pink2);
+  box-shadow: 0 8px 25px rgba(255,194,209,0.25);
+  background: #fff;
+  position: relative;
+  z-index: 2;
+}
+.logo-emoji {
+  position: absolute;
+  font-size: 1.5rem;
+  z-index: 1;
+  animation: floatEmoji 3s ease-in-out infinite;
+}
+.e1 { top: -10px; left: -10px; animation-delay: 0s; }
+.e2 { top: -10px; right: -10px; animation-delay: 0.5s; }
+.e3 { bottom: 10px; left: -20px; animation-delay: 1s; }
+.e4 { bottom: 10px; right: -20px; animation-delay: 1.5s; }
+
+@keyframes floatEmoji {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-10px) scale(1.1); }
 }
 
-/* ปรับชื่อร้านเป็นสีชมพูพาสเทล */
-.shop-name { 
-    font-size:2.6rem; font-weight:700; 
-    color: var(--shop-pink); 
-    text-align: center;
-    text-shadow: 2px 2px 5px rgba(244, 143, 177, 0.2);
+.shop-name {
+font-size:2.4rem; font-weight:700;
+color: var(--pink3);
+letter-spacing:1px;
+text-shadow: 2px 2px 4px rgba(251,108,193,0.15);
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 12px;
 }
-.shop-sub { font-size:.9rem; color: var(--text-main); margin-top:8px; text-align: center; opacity: 0.9; }
+.shop-sub { font-size:.85rem; color:var(--textl); margin-top:8px; line-height:1.7; }
 
-.status-box {
-    background: #fff;
-    border: 2px solid var(--accent-green);
-    border-radius:50px;
-    padding:6px 20px; text-align:center; margin: 15px auto 25px;
-    width: fit-content;
-    font-weight: 600; color: var(--text-main);
+.badges { display:flex; justify-content:center; gap:7px; flex-wrap:wrap; margin-top:11px; }
+.badge {
+background:#fff; border:1.5px solid var(--green2);
+border-radius:20px; padding:4px 13px;
+font-size:.72rem; color:var(--green3); font-weight:500;
 }
 
+/* CARDS */
 .card {
-background: var(--card-white);
-backdrop-filter:blur(10px);
-border: 2px solid #ffffff;
-border-radius:24px; padding:22px 20px; margin-bottom:18px;
-box-shadow:0 10px 25px rgba(0,0,0,0.05);
+background:rgba(255,255,255,.8); backdrop-filter:blur(12px);
+border:1.5px solid rgba(200,230,201,.4);
+border-radius:22px; padding:20px 18px; margin-bottom:14px;
+box-shadow:0 4px 18px rgba(129,199,132,.1), inset 0 1px 0 rgba(255,255,255,.8);
+position:relative; overflow:hidden;
 animation:fadeUp .6s ease both;
 }
 
-.ct { 
-  font-size:1.1rem; font-weight:700; color: var(--text-main); 
-  margin-bottom:15px; display:flex; align-items:center; gap:10px;
-  border-bottom: 2px solid var(--bg-green);
-  padding-bottom: 8px;
+.ct { font-size:.98rem; font-weight:600; color:var(--green3); margin-bottom:13px; display:flex; align-items:center; gap:8px; }
+.ct .ic { font-size:1.15rem; }
+
+/* status */
+.status-box {
+background:linear-gradient(135deg,#f1f8e9,#fce4ec);
+border:1.5px dashed var(--pink2); border-radius:16px;
+padding:15px; text-align:center; margin-bottom:14px;
+}
+.s-open { font-size:1.2rem; font-weight:600; color:var(--green4); }
+.s-dot { display:inline-block; width:10px;height:10px; background:#fb6cc1; border-radius:50%; margin-right:6px; box-shadow:0 0 0 4px rgba(251,108,193,.25); animation:blink 2s ease-in-out infinite; }
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.35;}}
+
+.div { text-align:center; color:var(--pink2); font-size:.85rem; letter-spacing:7px; margin:4px 0 14px; }
+
+/* links */
+.lnk {
+display:flex; align-items:center; gap:10px;
+background:linear-gradient(135deg,#ffffff,#f1f8e9);
+border:1.5px solid rgba(200,230,201,0.2); border-radius:14px;
+padding:12px 14px; text-decoration:none; color:var(--text);
+font-size:.84rem; transition:all .2s; margin-bottom:9px;
+}
+.lnk:hover { transform:translateX(4px); border-color: var(--pink2); }
+.lnk-ic { font-size:1.3rem; flex-shrink:0; }
+.lnk-name { font-weight:600; font-size:.88rem; color:var(--green4); margin-bottom:2px; }
+.lnk-desc { font-size:.75rem; color:var(--textl); }
+
+/* highlight box */
+.hi-box {
+background:linear-gradient(135deg,#fb6cc1,#ffc2d1);
+border-radius:16px; padding:13px 16px; color:#fff;
+text-align:center; margin-bottom:12px;
+box-shadow:0 6px 20px rgba(251,108,193,.2);
 }
 
-.grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.grid-item {
-    background: #fff; border: 1.5px solid var(--accent-green);
-    border-radius: 18px; padding: 12px 8px;
-    text-align: center; font-weight: 600; font-size: 0.85rem;
-    color: var(--text-main);
-}
-
-/* ปรับสี Tag และ Highlight ให้อ่อนลง */
-.tag { 
-    display: inline-block; padding: 2px 10px; 
-    background: var(--accent-pink); 
-    color: #fff; border-radius: 50px; 
-    font-size: 0.75rem; font-weight: 700; margin-left: 5px; 
-}
-.highlight { color: #f06292; font-weight: 700; }
-
-.cta-wrap { text-align:center; padding:15px 0; }
+/* CTA */
+.cta-wrap { text-align:center; padding:8px 0; }
 .cta-btn {
-display:flex; align-items:center; justify-content:center; gap:10px;
-width:100%; max-width:320px; margin: 0 auto;
-background: #06c755; color:#ffffff;
-font-size:1.1rem; font-weight:600; padding:16px;
+display:inline-block; width:100%; max-width:300px;
+background:linear-gradient(135deg,#81c784,#66bb6a);
+color:#fff; font-family: 'Mitr', sans-serif;
+font-size:1rem; font-weight:500; padding:14px 36px;
 border-radius:50px; text-decoration:none;
-box-shadow: 0 10px 20px rgba(6, 199, 85, 0.2);
-transition: 0.3s;
+box-shadow:0 8px 24px rgba(129,199,132,.3);
+transition:all .3s;
 }
-.cta-btn:hover { transform: translateY(-3px); }
+.cta-btn:hover { transform:translateY(-3px); }
 
-.footer { text-align:center; padding:20px 0; font-size:.8rem; opacity: 0.7; }
-@keyframes fadeUp { from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);} }
+/* footer */
+.footer { text-align:center; padding:16px 0 8px; font-size:.73rem; color:var(--textl); }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);} }
 </style>
+
 </head>
 <body>
 <div class="sp">🍃</div>
-<div class="sp">🌸</div>
 <div class="sp">🎀</div>
+<div class="sp">🌸</div>
+<div class="sp">✨</div>
+<div class="sp">⋆</div>
 
 <div class="wrap">
   <div class="header">
     <div class="logo-wrapper">
-      <img src="Logo.jpeg" alt="cxllmestore" class="logo-img">
+      <span class="logo-emoji e1">✨</span>
+      <span class="logo-emoji e2">🎀</span>
+      <span class="logo-emoji e3">🌸</span>
+      <span class="logo-emoji e4">🍃</span>
+      <img src="Logo.jpeg" alt="cxllmestore Logo" class="logo-img">
     </div>
-    <div class="shop-name">cxllmestore</div>
-    <div class="shop-sub">ยินดีต้อนรับลูกค้าที่น่ารักทุกคนค่ะ 🎀</div>
+    
+    <div class="shop-name">˗ˏˋ cxllmestore ´ˎ˗</div>
+    <div class="shop-sub">
+      ˗ˏˋ Welcome To cxllmestore ´ˎ˗<br>
+      พิกัดของพรีเมี่ยมราคาประหยัด สอบถามได้เลยค่ะ
+    </div>
+    <div class="badges">
+      <span class="badge">🎀 แอพพรีเมี่ยม</span>
+      <span class="badge">🌸 เริ่มต้น 10.-</span>
+      <span class="badge">🍃 รับเคลมตามเงื่อนไข</span>
+    </div>
   </div>
 
-  <div class="status-box">🕰️ Open 09:00 ♡ 01:00</div>
+  <div class="div">✦ · · ✦ · · ✦</div>
+
+  <div class="status-box">
+    <div class="s-open"><span class="s-dot"></span>Open 09:00 ♡ 01:00 🎀</div>
+  </div>
 
   <div class="card">
-    <div class="ct">🫧รายการพร้อมส่ง </div>
-    <div class="grid-container">
-      <div class="grid-item">✨ แอพพรีเมี่ยม</div>
-      <div class="grid-item">📽️ แอพมินิซีรีส์จีน</div>
-      <div class="grid-item">📺 Youtube Premium</div>
-      <div class="grid-item">📱 App iOS ♡ Android</div>
-      <div class="grid-item">📸 แอพแต่งรูป / ตัดคลิป</div>
-      <div class="grid-item">🔗 ลิงค์/โทน AM (10.-)</div>
+    <div class="ct"><span class="ic">🛍️</span> รายการพร้อมส่ง</div>
+    <a href="https://drive.google.com/drive/folders/13XyBQ3mfaQUWTcj-jhaTenq7m5aVn6u7" class="lnk" target="_blank">
+      <span class="lnk-ic">📱</span>
+      <div><div class="lnk-name">แอพพรีเมี่ยม</div><div class="lnk-desc">ดูรายการแอพพรีเมี่ยมทั้งหมด</div></div>
+    </a>
+    <a href="https://drive.google.com/drive/folders/1FAbWQAqMVonJxfrS9g9v5uWdSU1UqZ0H" class="lnk" target="_blank">
+      <span class="lnk-ic">🎬</span>
+      <div><div class="lnk-name">Netflix</div><div class="lnk-desc">เน็ตฟลิกซ์จอส่วนตัว/จอรวม</div></div>
+    </a>
+    <a href="https://drive.google.com/drive/folders/1-lLaTFchatZTR8Q-LPbMMNL1ZAxPG9IS" class="lnk" target="_blank">
+      <span class="lnk-ic">🇨🇳</span>
+      <div><div class="lnk-name">แอพมินิซีรีส์จีน</div><div class="lnk-desc">รวมแอพซีรีส์จีนยอดฮิต</div></div>
+    </a>
+    <a href="https://drive.google.com/drive/folders/1cjXcuPNi86fDRN7xFtnplzuctI-vWWgN" class="lnk" target="_blank">
+      <span class="lnk-ic">🎵</span>
+      <div><div class="lnk-name">Youtube Premium</div><div class="lnk-desc">ยูทูปพรีเมี่ยม ไม่มีโฆษณาคั่น</div></div>
+    </a>
+    <a href="https://drive.google.com/drive/folders/1-6cN7k1MJBHVQIcZ1MwplD1LQv9iVnKN" class="lnk" target="_blank">
+      <span class="lnk-ic">🍭</span>
+      <div><div class="lnk-name">App iOS ♡ Android</div><div class="lnk-desc">แอพอื่นๆ ทั้งสองระบบ</div></div>
+    </a>
+    <a href="https://drive.google.com/drive/folders/1lhYwwbIZQGWYlwG_tSDTNYB5iauBFLXn" class="lnk" target="_blank">
+      <span class="lnk-ic">🎨</span>
+      <div><div class="lnk-name">แอพแต่งรูป / ตัดคลิป</div><div class="lnk-desc">สายคอนเทนต์ต้องมี</div></div>
+    </a>
+    <a href="https://drive.google.com/drive/folders/1Mr1_S1ZQsfhkgXXCsB7xIZSb1wwz8t-I" class="lnk" target="_blank" style="background: #fff5f8;">
+      <span class="lnk-ic">✨</span>
+      <div><div class="lnk-name">โทน Am / ลิงก์</div><div class="lnk-desc">เริ่มต้นเพียง 10.- เท่านั้น</div></div>
+    </a>
+  </div>
+
+  <div class="card">
+    <div class="ct"><span class="ic">📋</span> รายละเอียด & เงื่อนไข</div>
+    <div style="font-size:.85rem;line-height:1.8;color:var(--text);">
+      <b>🍿 Netflix :</b><br>
+      ปัญหาระบบ/พาสบัค/แอคล็อค/จอเต็ม ⌗ <span style="color:var(--hot)">ไม่รับเคลม!</span><br>
+      เมลโดนปิด ♡ เคลมกรณีซื้อแบบเคลมเท่านั้น<br>
+      <a href="https://drive.google.com/drive/folders/1-vCxslWX_Udd51W7CWqjvSx91w4_CfQQ" style="color:var(--green3);text-decoration:none;">[ อ่านเพิ่มเติม ]</a>
+      <br><br>
+      <b>🇨🇳 มินิซีรีส์จีน :</b><br>
+      บางแอพอาจเด้ง/โดนปิด ⌗ <span style="color:var(--hot)">สอบถามก่อนโอน!</span><br>
+      <a href="https://drive.google.com/drive/folders/1LNkU1iS-CL8rrndS01EUvcKMY_AfNKp8" style="color:var(--green3);text-decoration:none;">[ อ่านเพิ่มเติม ]</a>
+      <br><br>
+      <b>🎵 Youtube Premium :</b><br>
+      ♡ Family : ปัญหาเยอะแต่ร้านเคลมตลอด ขอคนเข้าใจ<br>
+      ♡ รายบุคคล : ปัญหาน้อยกว่า (ต้องเมลที่ขึ้นแพ็ค)<br>
+      <a href="https://drive.google.com/drive/folders/1qa2ItMi-f2kycs6aMYXSev8dllflljkv" style="color:var(--green3);text-decoration:none;">[ อ่านเพิ่มเติม ]</a>
     </div>
   </div>
 
   <div class="card">
-    <div class="ct">📋 รายละเอียดบริการ</div>
-    <div style="font-size: 0.92rem; line-height: 1.8;">
-      <p><b>🎬 Netflix :</b></p>
-      <div style="margin-bottom: 12px; padding-left: 10px;">
-        ปัญหาจากระบบ ♡ พาสบัค / แอคล็อค / จอเต็ม <span class="tag">ไม่รับเคลม !</span><br>
-        เมลโดนปิด ♡ รับเคลมกรณีซื้อแบบเคลมเท่านั้น
-      </div>
-      
-      <p><b>🇨🇳 แอพมินิซีรีส์จีน :</b></p>
-      <div style="margin-bottom: 12px; padding-left: 10px;">
-        บางแอพเด้งบ่อย บางแอพอาจโดนปิด บางแอพไม่ปลดล็อคทุกตอน<br>
-        <span class="highlight"># สอบถามก่อนโอน !</span>
-      </div>
-
-      <p><b>🎧 Youtube Premium :</b></p>
-      <div style="padding-left: 10px;">
-        • <span class="highlight">Family:</span> ต่อเมล/ไม่ต่อเมล มีปัญหาเยอะ แต่ร้านรับเคลมตลอด<br>
-        • <span class="highlight">รายบุคคล:</span> ปัญหาน้อยกว่า ต้องเป็นเมลที่ขึ้นแพ็คเท่านั้น
-      </div>
-    </div>
+    <div class="ct"><span class="ic">📱</span> ช่องทางติดต่อ</div>
+    <a href="https://lin.ee/qCUts8U" class="lnk" target="_blank">
+      <span class="lnk-ic">💚</span>
+      <div><div class="lnk-name">LINE Official</div><div class="lnk-desc">@027daxkn · สั่งงานทางนี้ได้เลย</div></div>
+    </a>
+    <a href="https://drive.google.com/drive/folders/1pllbpfyYXT2HaKEEU_0r7e7UvGzOZZTJ" class="lnk" target="_blank">
+      <span class="lnk-ic">📂</span>
+      <div><div class="lnk-name">Portfolio</div><div class="lnk-desc">ดูข้อมูลและผลงานร้านเพิ่มเติม</div></div>
+    </a>
   </div>
 
   <div class="cta-wrap">
     <a href="https://lin.ee/qCUts8U" class="cta-btn" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" width="25" height="25">
-      Line : @027daxkn
+      🎀 ติดต่อสั่งซื้อสินค้า
     </a>
   </div>
 
   <div class="footer">
-    <div>© 2026 cxllmestore | ขอบคุณที่อุดหนุนนะคะ 🎀✨</div>
+    <div>made with 🌸 · cxllmestore · Premium App Store</div>
   </div>
 </div>
 </body>
