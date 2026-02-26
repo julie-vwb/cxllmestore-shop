@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>cxllmestore 🎀</title>
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-light: #FCE5EE;
+    --bg-yellow: #FDF3C8;
+    --accent-pink: #F6B6C5;
+    --text-brown: #8B6B73;
+    --card-bg: rgba(255, 255, 255, 0.6);
+  }
+  
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'Mitr', sans-serif;
+    /* ใช้โทนสีชมพู-เหลืองพาสเทลตามรหัสสี */
+    background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-yellow) 100%);
+    min-height: 100vh;
+    color: var(--text-brown);
+    display: flex;
+    justify-content: center;
+  }
+
+  .wrap { max-width:480px; width: 100%; padding:20px 15px 60px; position:relative; }
+
+  .header { text-align:center; padding:30px 0 10px; animation:fadeUp .7s ease both; }
+  
+  /* ส่วนแสดงโลโก้ */
+  .logo-wrapper { margin-bottom: 15px; display: flex; justify-content: center; }
+  .logo-img {
+    width: 140px; height: 140px;
+    object-fit: cover; border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 8px 20px rgba(139, 107, 115, 0.2);
+    background: var(--accent-pink);
+  }
+
+  .shop-name {
+    font-size:2.2rem; font-weight:700;
+    color: var(--text-brown);
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+  }
+  .shop-sub { font-size:.9rem; color: var(--text-brown); opacity: 0.8; }
+
+  .status-box {
+    background: #fff;
+    border: 2px solid var(--accent-pink);
+    border-radius:50px;
+    padding:8px 20px; text-align:center; margin: 15px auto 25px;
+    width: fit-content;
+    font-weight: 600; color: var(--text-brown);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+  }
+
+  .card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid #fff;
+    border-radius:25px; padding:20px; margin-bottom:15px;
+    box-shadow: 0 10px 25px rgba(139, 107, 115, 0.1);
+    animation:fadeUp .6s ease both;
+  }
+  
+  .ct { 
+    font-size:1.1rem; font-weight:700; color: var(--text-brown); 
+    margin-bottom:15px; display:flex; align-items:center; gap:8px;
+    border-bottom: 2px dashed var(--accent-pink);
+    padding-bottom: 8px;
+  }
+
+  /* Grid งานที่รับทำ */
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .grid-item {
+    background: #fff;
+    border: 1.5px solid var(--bg-light);
+    border-radius: 18px;
+    padding: 15px 10px;
+    text-align: center;
+    transition: 0.3s;
+  }
+  .grid-item:hover { transform: translateY(-3px); border-color: var(--accent-pink); }
+  .grid-title { color: var(--text-brown); font-weight: 600; font-size: 0.85rem; }
+
+  /* รายละเอียด */
+  .info-item { margin-bottom: 15px; }
+  .info-title { font-weight: 700; color: var(--text-brown); font-size: 0.95rem; margin-bottom: 5px; display: block; }
+  .info-detail { font-size: 0.85rem; line-height: 1.6; color: var(--text-brown); opacity: 0.9; }
+  .tag { 
+    display: inline-block; padding: 2px 8px; background: var(--accent-pink); 
+    color: #fff; border-radius: 5px; font-size: 0.75rem; font-weight: 600;
+  }
+
+  /* ปุ่ม LINE */
+  .cta-btn {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    width: 100%; background: #06c755;
+    color: #fff; font-size: 1.1rem; font-weight: 600; padding: 15px;
+    border-radius: 20px; text-decoration: none;
+    box-shadow: 0 10px 20px rgba(6, 199, 85, 0.2);
+    transition: 0.3s;
+  }
+  .cta-btn:hover { transform: scale(1.02); opacity: 0.9; }
+
+  .footer { text-align:center; padding:20px; font-size:.75rem; color: var(--text-brown); opacity: 0.6; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);} }
+  
+  .highlight { color: #d81b60; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="header">
+    <div class="logo-wrapper">
+      <img src="logo.png" alt="Logo" class="logo-img">
+    </div>
+    <div class="shop-name">cxllmestore</div>
+    <div class="shop-sub">ยินดีต้อนรับลูกค้าที่น่ารักทุกคนค่ะ 🎀</div>
+  </div>
+
+  <div class="status-box">
+    🕰️ Open 09:00 ♡ 01:00
+  </div>
+
+  <div class="card">
+    <div class="ct">🎨 งานที่รับทำ</div>
+    <div class="grid-container">
+      <div class="grid-item"><div class="grid-title">✨ แอพพรีเมี่ยม</div></div>
+      <div class="grid-item"><div class="grid-title">📽️ มินิซีรีส์จีน</div></div>
+      <div class="grid-item"><div class="grid-title">📺 Youtube Premium</div></div>
+      <div class="grid-item"><div class="grid-title">📱 iOS ♡ Android</div></div>
+      <div class="grid-item"><div class="grid-title">📸 แต่งรูป / ตัดคลิป</div></div>
+      <div class="grid-item"><div class="grid-title">🔗 ลิงค์/โทน AM (10.-)</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">📋 รายละเอียดบริการ</div>
+    
+    <div class="info-item">
+      <span class="info-title">🎬 Netflix :</span>
+      <p class="info-detail">
+        • พาสบัค / แอคล็อค / จอเต็ม <span class="tag">ไม่รับเคลม !</span><br>
+        • เมลโดนปิด : รับเคลมเฉพาะแบบซื้อแบบเคลมเท่านั้น
+      </p>
+    </div>
+
+    <div class="info-item">
+      <span class="info-title">🇨🇳 มินิซีรีส์จีน :</span>
+      <p class="info-detail">
+        บางแอพเด้งบ่อย/โดนปิด/ไม่ปลดล็อคทุกตอน<br>
+        <span class="highlight">⌗ สอบถามก่อนโอนนะคะ !</span>
+      </p>
+    </div>
+
+    <div class="info-item">
+      <span class="info-title">🎧 Youtube Premium :</span>
+      <p class="info-detail">
+        • <span class="highlight">Family:</span> รับเคลมตลอด ขอคนเข้าใจและรอได้<br>
+        • <span class="highlight">รายบุคคล:</span> ปัญหาน้อยกว่า (ต้องเป็นเมลที่ขึ้นแพ็คเท่านั้น)
+      </p>
+    </div>
+  </div>
+
+  <div class="cta-wrap">
+    <a href="https://lin.ee/qCUts8U" class="cta-btn" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" width="25" height="25">
+      Line : @027daxkn
+    </a>
+  </div>
+
+  <div class="footer">
+    <div>© 2026 cxllmestore | ขอบคุณที่อุดหนุนนะคะ 🎀✨</div>
+  </div>
+</div>
+
+</body>
+</html>
