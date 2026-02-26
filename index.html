@@ -7,13 +7,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    /* โทนเขียว-ชมพู พาสเทล */
     --bg-green: #E8F5E9; 
     --bg-pink: #FCE4EC;
     --accent-green: #A5D6A7;
     --accent-pink: #F48FB1;
-    --text-main: #4E6E52; /* เขียวหม่นให้อ่านง่าย */
-    --card-white: rgba(255, 255, 255, 0.85);
+    --text-main: #4E6E52;
+    --card-white: rgba(255, 255, 255, 0.9);
   }
   * { margin:0; padding:0; box-sizing:border-box; }
 
@@ -26,7 +25,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Floating Elements */
 .sp { position:fixed; pointer-events:none; z-index:0; animation:fl 5s ease-in-out infinite; opacity:0.5; }
 .sp:nth-child(1){top:4%;left:5%;font-size:22px;}
 .sp:nth-child(2){top:12%;right:8%;font-size:18px;animation-delay:1s;}
@@ -35,29 +33,17 @@ body {
 
 .wrap { max-width:480px; margin:0 auto; padding:16px 14px 60px; position:relative; z-index:1; }
 
-/* HEADER */
-.header { text-align:center; padding:35px 0 10px; animation:fadeUp .7s ease both; }
-
+.header { text-align:center; padding:35px 0 10px; }
 .logo-wrapper { margin-bottom: 15px; display: flex; justify-content: center; }
 .logo-img {
     width: 140px; height: 140px;
     object-fit: cover; border-radius: 50%;
     border: 4px solid #fff;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-    background: var(--accent-pink);
 }
 
-.shop-name {
-font-size:2.4rem; font-weight:700;
-color: var(--text-main);
-letter-spacing:1px;
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 12px;
-text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
-}
-.shop-sub { font-size:.9rem; color: var(--text-main); margin-top:8px; opacity: 0.9; }
+.shop-name { font-size:2.4rem; font-weight:700; color: var(--text-main); text-align: center; }
+.shop-sub { font-size:.9rem; color: var(--text-main); margin-top:8px; text-align: center; }
 
 .status-box {
     background: #fff;
@@ -65,17 +51,15 @@ text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
     border-radius:50px;
     padding:6px 20px; text-align:center; margin: 15px auto 25px;
     width: fit-content;
-    font-weight: 600; color: var(--text-main);
+    font-weight: 600;
 }
 
-/* CARDS */
 .card {
 background: var(--card-white);
 backdrop-filter:blur(10px);
 border: 2px solid #ffffff;
 border-radius:24px; padding:22px 20px; margin-bottom:18px;
 box-shadow:0 10px 25px rgba(0,0,0,0.05);
-animation:fadeUp .6s ease both;
 }
 
 .ct { 
@@ -85,24 +69,16 @@ animation:fadeUp .6s ease both;
   padding-bottom: 8px;
 }
 
-/* Content Text */
-.card-body { font-size:.92rem; line-height:1.8; color: var(--text-main); }
-
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
+.grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .grid-item {
     background: #fff; border: 1.5px solid var(--accent-green);
     border-radius: 18px; padding: 12px 8px;
     text-align: center; font-weight: 600; font-size: 0.85rem;
 }
 
+.tag { display: inline-block; padding: 2px 8px; background: #f48fb1; color: #fff; border-radius: 5px; font-size: 0.75rem; font-weight: 700; margin-left: 5px; }
 .highlight { color: #d81b60; font-weight: 700; }
-.tag { display: inline-block; padding: 0px 8px; background: #f48fb1; color: #fff; border-radius: 5px; font-size: 0.75rem; }
 
-/* CTA Button */
 .cta-wrap { text-align:center; padding:15px 0; }
 .cta-btn {
 display:flex; align-items:center; justify-content:center; gap:10px;
@@ -111,12 +87,9 @@ background: #06c755; color:#ffffff;
 font-size:1.1rem; font-weight:600; padding:16px;
 border-radius:50px; text-decoration:none;
 box-shadow: 0 10px 20px rgba(6, 199, 85, 0.2);
-transition: 0.3s;
 }
-.cta-btn:hover { transform: translateY(-3px); }
 
 .footer { text-align:center; padding:20px 0; font-size:.8rem; opacity: 0.7; }
-@keyframes fadeUp { from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);} }
 </style>
 </head>
 <body>
@@ -149,24 +122,24 @@ transition: 0.3s;
 
   <div class="card">
     <div class="ct">📋 รายละเอียดบริการ</div>
-    <div class="card-body">
+    <div style="font-size: 0.92rem; line-height: 1.8;">
       <p><b>🎬 Netflix :</b></p>
-      <p style="margin-bottom: 10px; padding-left: 10px;">
-        [span_0](start_span)[span_1](start_span)[span_2](start_span)[span_3](start_span)ปัญหาจากระบบ ♡ พาสบัค / แอคล็อค / จอเต็ม <span class="tag">ไม่รับเคลม !</span>[span_0](end_span)[span_1](end_span)[span_2](end_span)[span_3](end_span)<br>
-        [span_4](start_span)[span_5](start_span)[span_6](start_span)เมลโดนปิด ♡ รับเคลมกรณีซื้อแบบเคลมเท่านั้น[span_4](end_span)[span_5](end_span)[span_6](end_span)
-      </p>
+      <div style="margin-bottom: 10px; padding-left: 10px;">
+        ปัญหาจากระบบ ♡ พาสบัค / แอคล็อค / จอเต็ม <span class="tag">ไม่รับเคลม !</span><br>
+        เมลโดนปิด ♡ รับเคลมกรณีซื้อแบบเคลมเท่านั้น
+      </div>
       
       <p><b>🇨🇳 แอพมินิซีรีส์จีน :</b></p>
-      <p style="margin-bottom: 10px; padding-left: 10px;">
-        [span_7](start_span)[span_8](start_span)[span_9](start_span)[span_10](start_span)บางแอพเด้งบ่อย บางแอพอาจโดนปิด บางแอพไม่ปลดล็อคทุกตอน[span_7](end_span)[span_8](end_span)[span_9](end_span)[span_10](end_span)<br>
-        [span_11](start_span)<span class="highlight">⌗ สอบถามก่อนโอน !</span>[span_11](end_span)
-      </p>
+      <div style="margin-bottom: 10px; padding-left: 10px;">
+        บางแอพเด้งบ่อย บางแอพอาจโดนปิด บางแอพไม่ปลดล็อคทุกตอน<br>
+        <span class="highlight"># สอบถามก่อนโอน !</span>
+      </div>
 
       <p><b>🎧 Youtube Premium :</b></p>
-      <p style="padding-left: 10px;">
-        [span_12](start_span)[span_13](start_span)• <span class="highlight">Family:</span> ต่อเมล/ไม่ต่อเมล มีปัญหาเยอะ แต่ร้านรับเคลมตลอด[span_12](end_span)[span_13](end_span)<br>
+      <div style="padding-left: 10px;">
+        • <span class="highlight">Family:</span> ต่อเมล/ไม่ต่อเมล มีปัญหาเยอะ แต่ร้านรับเคลมตลอด<br>
         • <span class="highlight">รายบุคคล:</span> ปัญหาน้อยกว่า ต้องเป็นเมลที่ขึ้นแพ็คเท่านั้น
-      </p>
+      </div>
     </div>
   </div>
 
